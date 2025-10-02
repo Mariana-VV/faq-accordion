@@ -1,0 +1,41 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/utils/variables.scss" as *;
+@use "../../styles/utils/mixins.scss" as *;
+@use "../../styles/utils/media.scss" as *;
+
+.accordion {
+  border-radius: 8px;
+  background: $white;
+  width: 100%;
+  min-width: 327px;
+  padding: 24px;
+  min-height: fit-content;
+
+  &__header {
+    @include flex-center;
+    justify-content: start;
+    gap: 24px;
+  }
+
+  &__title {
+    color: $purple-950;
+    font-weight: bold;
+    font-size: 32px;
+  }
+}
+
+@include onTablet {
+  .accordion {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+  }
+}
+
+@include onDesktop {
+  .accordion {
+    min-width: 600px;
+    max-width: 900px;
+    padding: 40px;
+  }
+}

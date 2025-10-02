@@ -1,0 +1,17 @@
+@mixin Text-Preset-1 {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 66px;
+}
+
+@mixin Text-Preset-2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+@mixin Text-Preset-3 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
