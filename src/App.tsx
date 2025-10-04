@@ -1,11 +1,13 @@
 import "./App.scss";
-import { Accordions } from "./components/Accordion/Accordion";
+import { Accordion } from "./components/Accordion/Accordion";
 
 function App() {
   return (
-    <>
-      <Accordions />
-    </>
+    <section>
+      <div className="container">
+        <Accordion />
+      </div>
+    </section>
   );
 }
 

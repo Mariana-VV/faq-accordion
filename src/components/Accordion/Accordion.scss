@@ -6,15 +6,12 @@
 .accordion {
   border-radius: 8px;
   background: $white;
-  width: 100%;
-  min-width: 327px;
   padding: 24px;
-  min-height: fit-content;
 
   &__header {
     @include flex-center;
     justify-content: start;
-    gap: 24px;
+    gap: 40px;
   }
 
   &__title {
@@ -26,16 +23,17 @@
 
 @include onTablet {
   .accordion {
-    width: 100%;
-    max-width: 600px;
     padding: 40px;
+    &__header {
+      gap: 40px;
+    }
   }
 }
 
-@include onDesktop {
+@include onMobile {
   .accordion {
-    min-width: 600px;
-    max-width: 900px;
-    padding: 40px;
+    &__header {
+      gap: 24px;
+    }
   }
 }

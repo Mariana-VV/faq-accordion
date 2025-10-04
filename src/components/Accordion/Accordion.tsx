@@ -3,7 +3,7 @@ import "./Accordion.scss";
 import Star from "../../assets/images/star.svg?react";
 import { AccordionItem } from "../AccordionItem/AccordionItem";
 import { useState, type FC } from "react";
-import type { Accordion } from "../../types/Accordion";
+import type { AccordionProps } from "../../types/AccordionProps";
 
 const accordion = [
   {
@@ -24,14 +24,14 @@ const accordion = [
   },
 ];
 
-export const Accordions = () => {
-  const [currentItem, setCurrentItem] = useState<Accordion>({
+export const Accordion = () => {
+  const [currentItem, setCurrentItem] = useState<AccordionProps>({
     title: "",
     text: "",
   });
 
   return (
-    <section className="accordion">
+    <article className="accordion">
       <header className="accordion__header">
         <Star />
         <h1 className="accordion__title">FAQs</h1>
@@ -41,14 +41,14 @@ export const Accordions = () => {
         currentItem={currentItem}
         onCurrentItemClick={setCurrentItem}
       />
-    </section>
+    </article>
   );
 };
 
 type Props = {
-  items: Accordion[];
-  currentItem: Accordion;
-  onCurrentItemClick: (item: Accordion) => void;
+  items: AccordionProps[];
+  currentItem: AccordionProps;
+  onCurrentItemClick: (item: AccordionProps) => void;
 };
 
 export const AccordionList: FC<Props> = ({
