@@ -1,0 +1,14 @@
+@use "../utils/media.scss" as *;
+
+.container {
+  padding: 0 420px;
+  margin: 0 auto;
+
+  @include onTablet {
+    padding: 0 84px;
+  }
+
+  @include onMobile {
+    padding: 0 24px;
+  }
+}

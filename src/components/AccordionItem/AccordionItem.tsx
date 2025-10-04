@@ -2,12 +2,12 @@ import { type FC } from "react";
 import "./AccordionItem.scss";
 import Plus from "../../assets/images/plus.svg?react";
 import Minus from "../../assets/images/minus.svg?react";
-import type { Accordion } from "../../types/Accordion";
+import type { AccordionProps } from "../../types/AccordionProps";
 
 type Props = {
-  item: Accordion;
-  currentItem: Accordion;
-  onCurrentItemClick: (item: Accordion) => void;
+  item: AccordionProps;
+  currentItem: AccordionProps;
+  onCurrentItemClick: (item: AccordionProps) => void;
 };
 
 export const AccordionItem: FC<Props> = ({
