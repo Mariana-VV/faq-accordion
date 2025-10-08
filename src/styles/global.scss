@@ -1,1 +1,7 @@
 @forward "../styles/utils/index.scss";
+@use "../styles/container/container.scss" as *;
+
+#root {
+  width: 100%;
+}
+
