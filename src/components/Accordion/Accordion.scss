@@ -1,15 +1,10 @@
-@use "../../styles/global.scss" as *;
-@use "../../styles/utils/variables.scss" as *;
-@use "../../styles/utils/mixins.scss" as *;
-@use "../../styles/utils/media.scss" as *;
+@use "../../styles/utils/index.scss" as *;
 
 .accordion {
-  border-radius: 8px;
-  background: $white;
-  width: 100%;
-  min-width: 327px;
+  list-style-type: none;
   padding: 24px;
-  min-height: fit-content;
+  background-color: $white;
+  border-radius: 16px;
 
   &__header {
     @include flex-center;
@@ -22,20 +17,61 @@
     font-weight: bold;
     font-size: 32px;
   }
-}
 
-@include onTablet {
-  .accordion {
-    width: 100%;
-    max-width: 600px;
-    padding: 40px;
+  &__item {
+    border-bottom: 1px solid $purple-100;
+    padding: 16px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
-}
 
-@include onDesktop {
-  .accordion {
-    min-width: 600px;
-    max-width: 900px;
-    padding: 40px;
+  &__item-header {
+    display: grid;
+    grid-template-columns: auto 30px;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    cursor: pointer;
+    background: none;
+
+    &--open {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item-header-title {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+
+    @include onTablet {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  &__collapse {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+
+    &--open {
+      height: auto;
+    }
+  }
+
+  &__body-content {
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 }

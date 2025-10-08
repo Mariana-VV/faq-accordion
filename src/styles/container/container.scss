@@ -1,0 +1,14 @@
+@use "../utils/index.scss" as *;
+
+.container {
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include onTablet {
+    padding: 0 84px;
+  }
+
+  @include onDesktop {
+    padding: 0 420px;
+  }
+}
