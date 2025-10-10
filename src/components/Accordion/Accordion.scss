@@ -24,17 +24,17 @@
     }
   }
 
-  @include onDesctop {
+  @include onDesktop {
     &__header {
       gap: 24px;
     }
   }
 
-  &__item {
+  &__list-item {
     padding-block-start: 24px;
     border-bottom: 1px solid $purple-100;
 
-    &--header {
+    &-header {
       @include flex-between;
       align-items: start;
       gap: 11px;
@@ -44,7 +44,7 @@
       }
     }
 
-    &--title {
+    &-title {
       color: $purple-950;
       @include Text-Preset-2;
       margin-block-end: 24px;
@@ -55,7 +55,7 @@
       }
     }
 
-    &--content {
+    &-content {
       @include Text-Preset-3;
 
       color: $purple-600;
