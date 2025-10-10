@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import "./AccordionItem.scss";
+import "../Accordion/Accordion.scss";
 import Plus from "../../assets/images/plus.svg?react";
 import Minus from "../../assets/images/minus.svg?react";
 import type { AccordionProps } from "../../types/AccordionProps";
@@ -17,7 +17,7 @@ export const AccordionItem: FC<Props> = ({
 }) => {
   const isOpen = item === currentItem;
 
-  function handleCurrentItemClick() {
+  const handleCurrentItemClick = () => {
     onCurrentItemClick(
       isOpen
         ? {
@@ -26,15 +26,19 @@ export const AccordionItem: FC<Props> = ({
           }
         : item
     );
-  }
+  };
 
   return (
-    <li className="item">
-      <div className="item__header" onClick={handleCurrentItemClick}>
-        <h3 className="item__title">{item.title}</h3>
-        {currentItem === item ? <Minus /> : <Plus />}
+    <li className="accordion__item">
+      <div className="accordion__item--header" onClick={handleCurrentItemClick}>
+        <h3 className="accordion__item--title">{item.title}</h3>
+        {currentItem === item ? (
+          <Minus width={30} height={30} />
+        ) : (
+          <Plus width={30} height={30} />
+        )}
       </div>
-      {isOpen && <p className="item__content">{item.text}</p>}
+      {isOpen && <p className="accordion__item--content">{item.text}</p>}
     </li>
   );
 };

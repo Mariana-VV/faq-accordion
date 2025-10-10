@@ -1,12 +1,9 @@
-@use "../../styles/global.scss" as *;
-@use "../../styles/utils/variables.scss" as *;
-@use "../../styles/utils/mixins.scss" as *;
-@use "../../styles/utils/media.scss" as *;
+@use "../../styles/utils/index.scss" as *;
 
 .accordion {
   border-radius: 8px;
   background: $white;
-  padding: 24px;
+  padding: 40px;
 
   &__header {
     @include flex-center;
@@ -19,21 +16,53 @@
     font-weight: bold;
     font-size: 32px;
   }
-}
 
-@include onTablet {
-  .accordion {
+  @include onTablet {
     padding: 40px;
     &__header {
       gap: 40px;
     }
   }
-}
 
-@include onMobile {
-  .accordion {
+  @include onDesctop {
     &__header {
       gap: 24px;
+    }
+  }
+
+  &__item {
+    padding-block-start: 24px;
+    border-bottom: 1px solid $purple-100;
+
+    &--header {
+      @include flex-between;
+      align-items: start;
+      gap: 11px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--title {
+      color: $purple-950;
+      @include Text-Preset-2;
+      margin-block-end: 24px;
+      transition: 0.4s;
+
+      &:hover {
+        color: $violet;
+      }
+    }
+
+    &--content {
+      @include Text-Preset-3;
+
+      color: $purple-600;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 }
