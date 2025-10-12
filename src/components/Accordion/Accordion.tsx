@@ -1,11 +1,11 @@
-import "./Accordion.scss";
+import "../Accordion/Accordion.scss";
 
 import Star from "../../assets/images/star.svg?react";
-import { AccordionItem } from "../AccordionItem/AccordionItem";
-import { useState, type FC } from "react";
-import type { Accordion } from "../../types/Accordion";
+import { useState } from "react";
+import type { AccordionProps } from "../../types/AccordionProps";
+import { AccordionList } from "./AccordionList";
 
-const accordion = [
+const ACCORDION_ITEMS = [
   {
     title: "What is Frontend Mentor, and how will it help me?",
     text: "Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It’s suitable for all levels and ideal for portfolio building.",
@@ -24,48 +24,23 @@ const accordion = [
   },
 ];
 
-export const Accordions = () => {
-  const [currentItem, setCurrentItem] = useState<Accordion>({
+export const Accordion = () => {
+  const [currentItem, setCurrentItem] = useState<AccordionProps>({
     title: "",
     text: "",
   });
 
   return (
-    <section className="accordion">
+    <article className="accordion">
       <header className="accordion__header">
         <Star />
         <h1 className="accordion__title">FAQs</h1>
       </header>
       <AccordionList
-        items={accordion}
+        items={ACCORDION_ITEMS}
         currentItem={currentItem}
         onCurrentItemClick={setCurrentItem}
       />
-    </section>
-  );
-};
-
-type Props = {
-  items: Accordion[];
-  currentItem: Accordion;
-  onCurrentItemClick: (item: Accordion) => void;
-};
-
-export const AccordionList: FC<Props> = ({
-  items,
-  currentItem,
-  onCurrentItemClick,
-}) => {
-  return (
-    <ul className="list">
-      {items.map((item) => (
-        <AccordionItem
-          item={item}
-          currentItem={currentItem}
-          onCurrentItemClick={onCurrentItemClick}
-          key={item.text}
-        />
-      ))}
-    </ul>
+    </article>
   );
 };
